@@ -1,6 +1,14 @@
 # FastAPI_project
 This is my first **FastAPI** project. And this is test task for recommendation AI platform **Bewise**
 
+## Stack:
+
+![FastAPI](https://img.shields.io/badge/FastAPI-0.95.1-cyan?style=flat&logo=FastAPI&logoColor=cyan)
+![Python](https://img.shields.io/badge/Python-3.10-brightgreen?style=flat&logo=Python&logoColor=brightgreen)
+![SqlAlchemy](https://img.shields.io/badge/SqlAlchemy-2.0.13-brightgreen?style=flat&logo=python&logoColor=brightgreen)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15.2-blue?style=flat&logo=postgresql&logoColor=blue)
+![Docker](https://img.shields.io/badge/Docker_compose-grey?style=flat&logo=docker&logoColor=blue)
+
 ## Задача 1
 1.  С помощью **Docker** (предпочтительно - **docker-compose**) развернуть образ с любой опенсорсной СУБД (предпочтительно - **PostgreSQL**). Предоставить все необходимые скрипты и конфигурационные (docker/compose) файлы для развертывания СУБД, а также инструкции для подключения к ней. Необходимо обеспечить сохранность данных при рестарте контейнера (то есть - использовать volume-ы для хранения файлов СУБД на хост-машине).
 
@@ -19,3 +27,12 @@ This is my first **FastAPI** project. And this is test task for recommendation A
 3.  В репозитории с заданием должны быть предоставлены инструкции по сборке докер-образа с сервисом из п.2., его настройке и запуску. А также пример запроса к POST API сервиса.
    
 	>Желательно, если при выполнении задания вы будете использовать **docker-compose**, **SQLAalchemy**,  пользоваться аннотацией типов.
+
+---
+## Запуск
+
+1. Перейти в директорию с проектом и запустить команду:
+	```zsh
+	docker-compose up
+	```
+2. После установки и запуска контейнера, перейти по ссылке: http://127.0.0.1:8000/docs
