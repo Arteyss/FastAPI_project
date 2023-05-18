@@ -28,11 +28,26 @@ This is my first **FastAPI** project. And this is test task for recommendation A
    
 	>Желательно, если при выполнении задания вы будете использовать **docker-compose**, **SQLAalchemy**,  пользоваться аннотацией типов.
 
----
 ## Запуск
-
 1. Перейти в директорию с проектом и запустить команду:
 	```zsh
 	docker-compose up
 	```
 2. После установки и запуска контейнера, перейти по ссылке: http://127.0.0.1:8000/docs
+
+## Пример запроса и ответа
+**POST** запрос на *endpoint* `/questions/3` сохранит в базе 3-и сущности викторины
+
+```
+{"questions_num": 2}
+```
+И вернет предыдущей сохранённый вопрос для викторины
+
+```json
+{
+  "id_question": 43046,
+  "question": "After Abel's murder, Cain settled in this land east of Eden",
+  "answer": "Nod",
+  "created_at": "2022-12-30T18:55:35.605000"
+}
+```
