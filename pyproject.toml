@@ -12,6 +12,8 @@ uvicorn = "^0.22.0"
 requests = "^2.30.0"
 sqlalchemy = "^2.0.13"
 psycopg2 = "^2.9.6"
+pydub = "^0.25.1"
+python-multipart = "^0.0.6"
 
 
 [tool.poetry.group.dev.dependencies]
