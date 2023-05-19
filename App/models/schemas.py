@@ -11,3 +11,16 @@ class Quiz(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class UserCreate(BaseModel):
+    name: str
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    token: str
+
+    class Config:
+        orm_mode = True
