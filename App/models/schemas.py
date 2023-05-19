@@ -24,3 +24,10 @@ class User(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class Audio(BaseModel):
+    url: str
+
+    class Config:
+        orm_mode = True
