@@ -1,7 +1,7 @@
-from service import get_data_from_api
+from service import generate_token, get_data_from_api
 from sqlalchemy.orm import Session
 
-from . import models
+from . import models, schemas
 
 
 def get_last_item(db: Session):
@@ -21,3 +21,15 @@ def create_quiz(db: Session, data: list):
         db.add(db_data)
         db.commit()
         db.refresh(db_data)
+
+
+def create_user(db: Session, user: schemas.UserCreate):
+    user_token = generate_token()
+    db_user = models.User(
+        name=user.name,
+        token=user_token
+    )
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
