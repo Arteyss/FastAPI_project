@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && \
-    apt-get -y install libpq-dev gcc
+    apt-get -y install libpq-dev ffmpeg gcc
 
 RUN pip install --upgrade pip && \
     pip install poetry

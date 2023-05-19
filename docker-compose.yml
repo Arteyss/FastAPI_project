@@ -16,6 +16,8 @@ services:
       dockerfile: Dockerfile
       context: .
     container_name: fastapi_service
+    volumes:
+      - audio:/FastAPI_project/App/audio
     command: >
       sh -c "
         uvicorn main:app --host 0.0.0.0 --port 8000
@@ -31,3 +33,4 @@ services:
 
 volumes:
   data:
+  audio:
