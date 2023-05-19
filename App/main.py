@@ -23,3 +23,8 @@ def post_items(questions_num: int, db: Session = Depends(get_db)):
     last_item = crud.get_last_item(db=db)
     crud.create_quiz(db=db, data=data)
     return last_item or {}
+
+
+@app.post("/users/", response_model=schemas.User)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    return crud.create_user(user=user, db=db)
