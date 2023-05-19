@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, File, Form, UploadFile
+from fastapi.responses import FileResponse
 from models import crud, models, schemas
 from models.database import SessionLocal, engine
 from service import get_data_from_api
@@ -38,3 +39,10 @@ def convert_audio(file: Annotated[UploadFile, File()],
                   access_token: Annotated[str, Form()],
                   db: Session = Depends(get_db)):
     return crud.audio_recording(db=db, file=file, user_id=user_id)
+
+
+@app.get("/record", response_class=FileResponse)
+def download_mp3(id: str, user: int):
+    return FileResponse(path=f"audio/{id}.mp3",
+                        filename=f"audio_user_{user}.mp3",
+                        media_type="multipart/form-data")
