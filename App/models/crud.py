@@ -1,4 +1,4 @@
-from service import generate_token, get_data_from_api
+from service import convert_wav_mp3, generate_token, get_data_from_api
 from sqlalchemy.orm import Session
 
 from . import models, schemas
@@ -33,3 +33,17 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def audio_recording(db: Session, file, user_id: int):
+    file_id = convert_wav_mp3(file)
+    download_url = f"http://localhost:8000/record?id={file_id}&user={user_id}"
+    db_audio = models.Audio(
+        id=file_id,
+        url=download_url,
+        owner_id=user_id
+    )
+    db.add(db_audio)
+    db.commit()
+    db.refresh(db_audio)
+    return db_audio
